@@ -4,18 +4,54 @@
 //
 
 using System;
+using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace Windows.Devices.Pwm
 {
     public sealed class PwmPin : IPwmPin, IDisposable
     {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeSetActiveDutyCyclePercentage(uint dutyCyclePercentage);
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeSetPolarity(byte polarity);
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeStart();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeStop();
+
+        private object _syncLock = new object();
+        private readonly PwmController _pwmController;
+        private PwmPulsePolarity _polarity;
+        private double _dutyCyclePercentage;
+        private uint _dutyCycle;
+        private int _pinNumber;
+        private int _pwmTimer;
+        private bool _isStarted;
+
+        internal PwmPin (PwmController controller, int pwmTimer, int pinNumber)
+        {
+            _pwmController = controller;
+            _pwmTimer = pwmTimer;
+            _pinNumber = pinNumber;
+        }
+
         /// <summary>
         /// Gets the PWM controller in use by this pin.
         /// </summary>
         /// <value>
         /// The controller.
         /// </value>
-        public PwmController Controller { get; }
+        public PwmController Controller
+        {
+            get
+            {
+                return _pwmController;
+            }
+        }
 
         /// <summary>
         /// Gets the started state of the pin.
@@ -23,7 +59,13 @@ namespace Windows.Devices.Pwm
         /// <value>
         /// True if the PWM has started on this pin, otherwise false.
         /// </value>
-        public bool IsStarted { get; }
+        public bool IsStarted
+        {
+            get
+            {
+                return _isStarted;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the polarity of the pin.
@@ -31,24 +73,18 @@ namespace Windows.Devices.Pwm
         /// <value>
         /// The pin polarity.
         /// </value>
-        public PwmPulsePolarity Polarity { get; set; }
-
-        /// <summary>
-        /// Closes current connection to the pin, and makes pin available to be opened by others.
-        /// </summary>
-        public void Close()
+        public PwmPulsePolarity Polarity
         {
-            // This member is not implemented in C#
-            throw new NotImplementedException();
-        }
+            get
+            {
+                return _polarity;
+            }
 
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+            set
+            {
+                _polarity = value;
+                NativeSetPolarity((byte)value);
+            }
         }
 
         /// <summary>
@@ -59,7 +95,7 @@ namespace Windows.Devices.Pwm
         /// </returns>
         public double GetActiveDutyCyclePercentage()
         {
-            throw new NotImplementedException();
+            return _dutyCyclePercentage;
         }
 
         /// <summary>
@@ -68,9 +104,11 @@ namespace Windows.Devices.Pwm
         /// <param name="dutyCyclePercentage">
         /// The desired duty cycle percentage, represented as a value between 0.0 and 1.0.
         /// </param>
-        public void SetActiveDutyCyclePercentage(Double dutyCyclePercentage)
+        public void SetActiveDutyCyclePercentage(double dutyCyclePercentage)
         {
-            throw new NotImplementedException();
+            _dutyCyclePercentage = dutyCyclePercentage;
+            _dutyCycle = (uint)(dutyCyclePercentage * 10000);
+            NativeSetActiveDutyCyclePercentage(_dutyCycle);
         }
 
         /// <summary>
@@ -78,7 +116,8 @@ namespace Windows.Devices.Pwm
         /// </summary>
         public void Start()
         {
-            throw new NotImplementedException();
+            NativeStart();
+            _isStarted = true;
         }
 
         /// <summary>
@@ -86,7 +125,50 @@ namespace Windows.Devices.Pwm
         /// </summary>
         public void Stop()
         {
-            throw new NotImplementedException();
+            NativeStop();
+            _isStarted = false;
         }
+
+        #region IDisposable Support
+
+        private bool _disposedValue;
+
+        private void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                }
+
+                DisposeNative();
+
+                _disposedValue = true;
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void DisposeNative();
+
+#pragma warning disable 1591
+        ~PwmPin()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            lock (_syncLock)
+            {
+                if (!_disposedValue)
+                {
+                    Dispose(true);
+
+                    GC.SuppressFinalize(this);
+                }
+            }
+        }
+
+        #endregion
     }
 }

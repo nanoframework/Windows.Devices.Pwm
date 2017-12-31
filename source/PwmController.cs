@@ -4,8 +4,7 @@
 //
 
 using System;
-using System.Collections.Generic;
-using Windows.Devices.Pwm.Provider;
+using System.Runtime.CompilerServices;
 
 namespace Windows.Devices.Pwm
 {
@@ -14,13 +13,34 @@ namespace Windows.Devices.Pwm
     /// </summary>
     public sealed class PwmController : IPwmController
     {
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern uint  NativeSetDesiredFrequency (uint desiredFrequency);
+
+        private readonly int _deviceId;
+        private double _actualFrequency;
+        private string _pwmTimer;
+
+        internal PwmController(string pwmController)
+        {
+            var deviceId = (Convert.ToInt32(pwmController.Substring(3)));    // Remove the "TIM" part of the string "TIMxx" to get the "xx" value
+            _deviceId = deviceId;
+            _actualFrequency = 0.0;
+            _pwmTimer = pwmController;
+        }
+
         /// <summary>
         /// Gets the actual frequency of the PWM.
         /// </summary>
         /// <value>
         /// The frequency in Hz.
         /// </value>
-        public double ActualFrequency { get; }
+        public double ActualFrequency
+        {
+            get
+            {
+                return _actualFrequency;
+            }
+        }
 
         /// <summary>
         /// Gets the maximum frequency offered by the controller.
@@ -28,7 +48,11 @@ namespace Windows.Devices.Pwm
         /// <value>
         /// The maximum frequency in Hz.
         /// </value>
-        public double MaxFrequency { get; }
+        public extern double MaxFrequency
+        {
+            [MethodImpl(MethodImplOptions.InternalCall)]
+            get;
+        }
 
         /// <summary>
         /// Gets the minimum frequency offered by the controller.
@@ -36,7 +60,11 @@ namespace Windows.Devices.Pwm
         /// <value>
         /// The minimum frequency in Hz.
         /// </value>
-        public double MinFrequency { get; }
+        public extern double MinFrequency
+        {
+            [MethodImpl(MethodImplOptions.InternalCall)]
+            get;
+        }
 
         /// <summary>
         /// Gets the number of pins available on the system.
@@ -44,7 +72,11 @@ namespace Windows.Devices.Pwm
         /// <value>
         /// The number of pins.
         /// </value>
-        public int PinCount { get; }
+        public extern int PinCount
+        {
+            [MethodImpl(MethodImplOptions.InternalCall)]
+            get;
+        }
 
         /// <summary>
         /// Initializes a PWM controller instance based on the given DeviceInformation ID.
@@ -53,25 +85,11 @@ namespace Windows.Devices.Pwm
         /// The acquired DeviceInformation ID.
         /// </param>
         /// <returns>
-        /// IAsyncOperation<PwmController> 
+        /// PwmController
         /// </returns>
         public static PwmController FromId(String deviceId)
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Gets all the controllers on the system asynchronously.
-        /// </summary>
-        /// <param name="provider">
-        /// The PWM provider that is on the system.
-        /// </param>
-        /// <returns>
-        /// When the method completes successfully, it returns a list of values that represent the controllers available on the system.
-        /// </returns>
-        public static IReadOnlyList<PwmController> GetControllers(IPwmProvider provider)
-        {
-            throw new NotImplementedException();
+            return new PwmController(deviceId);
         }
 
         /// <summary>
@@ -82,17 +100,15 @@ namespace Windows.Devices.Pwm
         /// </returns>
         public static PwmController GetDefault()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         /// <summary>
         /// Retrieves an Advanced Query Syntax (AQS) string for all the PWM controllers on the system. You can use this string with the DeviceInformation.FindAllAsync method to get DeviceInformation objects for those controllers.
         /// </summary>
         /// <returns></returns>
-        public static string GetDeviceSelector()
-        {
-            throw new NotImplementedException();
-        }
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        public static extern string GetDeviceSelector();
 
         /// <summary>
         /// Retrieves an Advanced Query Syntax (AQS) string for the PWM controller that has the specified friendly name. You can use this string with the DeviceInformation.FindAllAsync method to get DeviceInformation objects for those controllers.
@@ -103,7 +119,8 @@ namespace Windows.Devices.Pwm
         /// <returns></returns>
         public static string GetDeviceSelector(String friendlyName)
         {
-            throw new NotImplementedException();
+            // At the moment, ignore the friendly name.
+            return GetDeviceSelector();
         }
 
         /// <summary>
@@ -117,7 +134,7 @@ namespace Windows.Devices.Pwm
         /// </returns>
         public PwmPin OpenPin(Int32 pinNumber)
         {
-            throw new NotImplementedException();
+            return new PwmPin(this, _deviceId, pinNumber);
         }
 
         /// <summary>
@@ -131,8 +148,10 @@ namespace Windows.Devices.Pwm
         /// </returns>
         public double SetDesiredFrequency(Double desiredFrequency)
         {
-            throw new NotImplementedException();
+            _actualFrequency = NativeSetDesiredFrequency((uint)desiredFrequency);
+            
+            return _actualFrequency;
         }
-
     }
 }
+

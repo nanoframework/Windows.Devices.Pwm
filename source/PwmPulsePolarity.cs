@@ -3,7 +3,7 @@
 // See LICENSE file in the project root for full license information.
 //
 
-namespace temp.Windows.Devices.Pwm
+namespace Windows.Devices.Pwm
 {
     /// <summary>
     /// Describes which polarity the PWM signal should start in.
