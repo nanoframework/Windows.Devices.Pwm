@@ -12,6 +12,9 @@ namespace Windows.Devices.Pwm
     public sealed class PwmPin : IPwmPin, IDisposable
     {
         [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeInit();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
         private extern void NativeSetActiveDutyCyclePercentage(uint dutyCyclePercentage);
 
         [MethodImpl(MethodImplOptions.InternalCall)]
@@ -37,6 +40,9 @@ namespace Windows.Devices.Pwm
             _pwmController = controller;
             _pwmTimer = pwmTimer;
             _pinNumber = pinNumber;
+            _polarity = PwmPulsePolarity.ActiveHigh;
+
+            NativeInit();
         }
 
         /// <summary>
