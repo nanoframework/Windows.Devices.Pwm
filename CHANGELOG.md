@@ -13,6 +13,7 @@
 
 **Documentation and other chores:**
 
+- Bumps nanoFramework.CoreLibrary from 1.0.1-preview118 to 1.0.1-preview123 [\#19](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/19)
 - 📦 Bumps nanoFramework.CoreLibrary from 1.0.1-preview116 to 1.0.1-preview118 [\#18](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/18)
 - 📦 Bumps nanoFramework.CoreLibrary from 1.0.1-preview106 to 1.0.1-preview116 [\#17](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/17)
 - Bump nanoFramework.CoreLibrary from 1.0.0-preview062 to 1.0.0-preview073 in /source [\#12](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/12)
