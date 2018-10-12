@@ -14,14 +14,14 @@ test: off
 pull_requests:
   do_not_increment_build_number: true
 
-  # Skipping commits affecting specific files
-  skip_commits:
-    files:
-    - '**\AssemblyInfo.*'
-    - '**/*.md'
-    - 'LICENSE'
-    - dir/*
-    - '.gitignore'
+# Skipping commits affecting specific files
+skip_commits:
+  files:
+  - '**\AssemblyInfo.*'
+  - '**/*.md'
+  - 'LICENSE'
+  - dir/*
+  - '.gitignore'
 
 build:
   verbosity: minimal
