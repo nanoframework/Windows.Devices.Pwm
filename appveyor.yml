@@ -80,7 +80,7 @@ before_deploy:
 
 # requires APPVEYOR_DISCORD_WEBHOOK_URL enviroment variable set with Discord webhook URL
 on_failure:
-  - ps: $env:APPVEYOR_BUILD_FOLDER\appveyor-discord.ps1 failure $env:APPVEYOR_DISCORD_WEBHOOK_URL
+  - ps: '& "$env:APPVEYOR_BUILD_FOLDER\appveyor-discord.ps1 failure $env:APPVEYOR_DISCORD_WEBHOOK_URL"'
 
 cache:
   - source\packages -> **source\packages.config
@@ -134,8 +134,8 @@ for:
     force_update: true
   after_deploy:
   # for this environment variable to work here it has to be set in AppVeyor UI
-  - nuget push source\Nuget.nanoFramework.Windows.Devices.Pwm\bin\Release\nanoFramework.Windows.Devices.Pwm.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
-  - nuget push source\Nuget.nanoFramework.Windows.Devices.Pwm.DELIVERABLES\bin\Release\nanoFramework.Windows.Devices.Pwm.DELIVERABLES.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
+  - nuget push source\Nuget.Windows.Devices.Pwm\bin\Release\nanoFramework.Windows.Devices.Pwm.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
+  - nuget push source\Nuget.Windows.Devices.Pwm.DELIVERABLES\bin\Release\nanoFramework.Windows.Devices.Pwm.DELIVERABLES.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
 
 -
   branches:
@@ -156,5 +156,5 @@ for:
 
   after_deploy:
   # for this environment variable to work here it has to be set in AppVeyor UI
-  - nuget push source\Nuget.nanoFramework.Windows.Devices.Pwm\bin\Release\nanoFramework.Windows.Devices.Pwm.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
-  - nuget push source\Nuget.nanoFramework.Windows.Devices.Pwm.DELIVERABLES\bin\Release\nanoFramework.Windows.Devices.Pwm.DELIVERABLES.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
+  - nuget push source\Nuget.Windows.Devices.Pwm\bin\Release\nanoFramework.Windows.Devices.Pwm.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
+  - nuget push source\Nuget.Windows.Devices.Pwm.DELIVERABLES\bin\Release\nanoFramework.Windows.Devices.Pwm.DELIVERABLES.%GitVersion_NuGetVersionV2%.nupkg %MyGetToken% -Source https://www.myget.org/F/nanoframework-dev/api/v2/package
