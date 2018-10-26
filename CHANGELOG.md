@@ -2,6 +2,14 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
 
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.0...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.CoreLibrary from 1.0.4 to 1.0.5-preview024 [\#27](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/27)
+- merge back changes from Release 1.0.0 [\#25](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/25)
+
+## [v1.0.0](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.0) (2018-10-17)
 **Implemented enhancements:**
 
 - Update snk to match mscorlib [\#13](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/13)
@@ -13,6 +21,8 @@
 
 **Documentation and other chores:**
 
+- Merge 'develop' for Release 1.0.0 [\#24](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/24)
+- Bumps nanoFramework.CoreLibrary from 1.0.1-preview134 to 1.0.4 [\#23](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/23)
 - Bumps nanoFramework.CoreLibrary from 1.0.1-preview127 to 1.0.1-preview134 [\#21](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/21)
 - Bumps nanoFramework.CoreLibrary from 1.0.1-preview123 to 1.0.1-preview127 [\#20](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/20)
 - Bumps nanoFramework.CoreLibrary from 1.0.1-preview118 to 1.0.1-preview123 [\#19](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/19)
