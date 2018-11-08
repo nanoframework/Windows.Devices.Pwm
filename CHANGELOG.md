@@ -6,6 +6,7 @@
 
 **Documentation and other chores:**
 
+- Bumps nanoFramework.CoreLibrary from 1.0.5-preview024 to 1.0.6-preview-001 [\#29](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/29)
 - Bumps nanoFramework.CoreLibrary from 1.0.4 to 1.0.5-preview024 [\#27](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/27)
 - merge back changes from Release 1.0.0 [\#25](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/25)
 
