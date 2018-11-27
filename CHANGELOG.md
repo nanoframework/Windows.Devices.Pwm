@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.0.2-preview-013](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.2-preview-013) (2018-11-27)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.2-preview-008...v1.0.2-preview-013)
+
+**Implemented enhancements:**
+
+- Rework PwmController and PwmPin [\#32](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/32)
+
 ## [v1.0.2-preview-008](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.2-preview-008) (2018-11-19)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.0...v1.0.2-preview-008)
 
