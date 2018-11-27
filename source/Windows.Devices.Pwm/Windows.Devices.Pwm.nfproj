@@ -55,6 +55,7 @@
     <Compile Include="IPwmPin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PwmController.cs" />
+    <Compile Include="PwmControllerManager.cs" />
     <Compile Include="PwmPin.cs" />
     <Compile Include="PwmPulsePolarity.cs" />
   </ItemGroup>
