@@ -24,12 +24,13 @@ namespace Windows.Devices.Pwm
 
         internal PwmController(string controller)
         {
+            // the Pwm id is an ASCII string with the format 'PWMn'
+            // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
+            _controllerId = controller[3] - '0';
+
             // check if this controller is already opened
-            if (!PwmControllerManager.ControllersCollection.Contains(controller))
+            if (!PwmControllerManager.ControllersCollection.Contains(_controllerId))
             {
-                // the Pwm id is an ASCII string with the format 'PWMn'
-                // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
-                _controllerId = controller[3] - '0';
 
                 _actualFrequency = 0.0;
                 _pwmTimer = controller;
@@ -121,10 +122,14 @@ namespace Windows.Devices.Pwm
 
             if (controllers.Length > 0)
             {
-                if (PwmControllerManager.ControllersCollection.Contains(controllers[0]))
+                // the Pwm id is an ASCII string with the format 'PWMn'
+                // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
+                var controllerId = controllers[0][3] - '0';
+
+                if (PwmControllerManager.ControllersCollection.Contains(controllerId))
                 {
                     // controller is already open
-                    return (PwmController)PwmControllerManager.ControllersCollection[controllers[0]];
+                    return (PwmController)PwmControllerManager.ControllersCollection[controllerId];
                 }
                 else
                 {
