@@ -12,8 +12,8 @@
 
 | Component | Build Status | NuGet Package |
 |:-|---|---|
-| Windows.Devices.Pwm | [![Build status](https://ci.appveyor.com/api/projects/status/3i6mwyv12tlapuyr/branch/master?svg=true)](https://ci.appveyor.com/project/nfbot/lib-windows-devices-pwm/branch/master) | [![NuGet](https://img.shields.io/nuget/vpre/nanoFramework.Windows.Devices.Pwm.svg)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.Pwm/)  |
-| Windows.Devices.Pwm (preview) | [![Build status](https://ci.appveyor.com/api/projects/status/3i6mwyv12tlapuyr/branch/develop?svg=true)](https://ci.appveyor.com/project/nfbot/lib-windows-devices-pwm/branch/develop) | [![MyGet Pre Release](https://img.shields.io/myget/nanoframework-dev/vpre/nanoFramework.Windows.Devices.Pwm.svg)](https://www.myget.org/feed/nanoframework-dev/package/nuget/nanoFramework.Windows.Devices.Pwm) |
+| Windows.Devices.Pwm | [![Build status](https://ci.appveyor.com/api/projects/status/3i6mwyv12tlapuyr/branch/master?svg=true)](https://ci.appveyor.com/project/nfbot/lib-windows-devices-pwm/branch/master) | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Pwm.svg)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.Pwm/)  |
+| Windows.Devices.Pwm (preview) | [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_apis/build/status/nanoframework.lib-Windows.Devices.Pwm)](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_build/latest?definitionId=8) | [![MyGet Pre Release](https://img.shields.io/myget/nanoframework-dev/vpre/nanoFramework.Windows.Devices.Pwm.svg)](https://www.myget.org/feed/nanoframework-dev/package/nuget/nanoFramework.Windows.Devices.Pwm) |
 
 
 ## Feedback and documentation

@@ -9,31 +9,39 @@ using System.Runtime.CompilerServices;
 
 namespace Windows.Devices.Pwm
 {
+    /// <summary>
+    /// Represents a single PWM pin on the system.
+    /// </summary>
     public sealed class PwmPin : IPwmPin, IDisposable
     {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern void NativeInit();
+        // this is used as the lock object 
+        // a lock is required because multiple threads can access the device
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
+        private readonly object _syncLock = new object();
 
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern void NativeSetActiveDutyCyclePercentage(uint dutyCyclePercentage);
-
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern void NativeSetPolarity(byte polarity);
-
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern void NativeStart();
-
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern void NativeStop();
-
-        private object _syncLock = new object();
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private readonly PwmController _pwmController;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private PwmPulsePolarity _polarity;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private double _dutyCyclePercentage;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private uint _dutyCycle;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private int _pinNumber;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private int _pwmTimer;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private bool _isStarted;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
+        private bool _disposed;
 
         internal PwmPin (PwmController controller, int pwmTimer, int pinNumber)
         {
@@ -137,11 +145,9 @@ namespace Windows.Devices.Pwm
 
         #region IDisposable Support
 
-        private bool _disposedValue;
-
         private void Dispose(bool disposing)
         {
-            if (!_disposedValue)
+            if (!_disposed)
             {
                 if (disposing)
                 {
@@ -149,14 +155,11 @@ namespace Windows.Devices.Pwm
 
                 DisposeNative();
 
-                _disposedValue = true;
+                _disposed = true;
             }
         }
 
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern void DisposeNative();
-
-#pragma warning disable 1591
+        #pragma warning disable 1591
         ~PwmPin()
         {
             Dispose(false);
@@ -166,7 +169,7 @@ namespace Windows.Devices.Pwm
         {
             lock (_syncLock)
             {
-                if (!_disposedValue)
+                if (!_disposed)
                 {
                     Dispose(true);
 
@@ -174,6 +177,29 @@ namespace Windows.Devices.Pwm
                 }
             }
         }
+        #pragma warning restore 1591
+
+        #endregion
+
+        #region Native Calls
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeInit();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeSetActiveDutyCyclePercentage(uint dutyCyclePercentage);
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeSetPolarity(byte polarity);
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeStart();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void NativeStop();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern void DisposeNative();
 
         #endregion
     }

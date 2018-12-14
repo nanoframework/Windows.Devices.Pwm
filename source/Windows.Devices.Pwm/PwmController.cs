@@ -13,19 +13,36 @@ namespace Windows.Devices.Pwm
     /// </summary>
     public sealed class PwmController : IPwmController
     {
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        private extern uint  NativeSetDesiredFrequency (uint desiredFrequency);
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
+        private readonly int _controllerId;
 
-        private readonly int _deviceId;
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private double _actualFrequency;
+
+        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         private string _pwmTimer;
 
-        internal PwmController(string pwmController)
+        internal PwmController(string controller)
         {
-            var deviceId = (Convert.ToInt32(pwmController.Substring(3)));    // Remove the "TIM" part of the string "TIMxx" to get the "xx" value
-            _deviceId = deviceId;
-            _actualFrequency = 0.0;
-            _pwmTimer = pwmController;
+            // the Pwm id is an ASCII string with the format 'PWMn'
+            // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
+            _controllerId = controller[3] - '0';
+
+            // check if this controller is already opened
+            if (!PwmControllerManager.ControllersCollection.Contains(_controllerId))
+            {
+
+                _actualFrequency = 0.0;
+                _pwmTimer = controller;
+
+                // add controller to collection, with the ID as key (just the index number)
+                PwmControllerManager.ControllersCollection.Add(_controllerId, this);
+            }
+            else
+            {
+                // this controller already exists: throw an exception
+                throw new ArgumentException();
+            }
         }
 
         /// <summary>
@@ -100,27 +117,29 @@ namespace Windows.Devices.Pwm
         /// </returns>
         public static PwmController GetDefault()
         {
+            string controllersAqs = GetDeviceSelector();
+            string[] controllers = controllersAqs.Split(',');
+
+            if (controllers.Length > 0)
+            {
+                // the Pwm id is an ASCII string with the format 'PWMn'
+                // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
+                var controllerId = controllers[0][3] - '0';
+
+                if (PwmControllerManager.ControllersCollection.Contains(controllerId))
+                {
+                    // controller is already open
+                    return (PwmController)PwmControllerManager.ControllersCollection[controllerId];
+                }
+                else
+                {
+                    // this controller is not in the collection, create it
+                    return new PwmController(controllers[0]);
+                }
+            }
+
+            // the system has no PWM controller 
             return null;
-        }
-
-        /// <summary>
-        /// Retrieves an Advanced Query Syntax (AQS) string for all the PWM controllers on the system. You can use this string with the DeviceInformation.FindAllAsync method to get DeviceInformation objects for those controllers.
-        /// </summary>
-        /// <returns></returns>
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        public static extern string GetDeviceSelector();
-
-        /// <summary>
-        /// Retrieves an Advanced Query Syntax (AQS) string for the PWM controller that has the specified friendly name. You can use this string with the DeviceInformation.FindAllAsync method to get DeviceInformation objects for those controllers.
-        /// </summary>
-        /// <param name="friendlyName">
-        /// A friendly name for the particular PWM controller for which you want to get the corresponding AQS string.
-        /// </param>
-        /// <returns></returns>
-        public static string GetDeviceSelector(String friendlyName)
-        {
-            // At the moment, ignore the friendly name.
-            return GetDeviceSelector();
         }
 
         /// <summary>
@@ -134,7 +153,7 @@ namespace Windows.Devices.Pwm
         /// </returns>
         public PwmPin OpenPin(Int32 pinNumber)
         {
-            return new PwmPin(this, _deviceId, pinNumber);
+            return new PwmPin(this, _controllerId, pinNumber);
         }
 
         /// <summary>
@@ -152,6 +171,20 @@ namespace Windows.Devices.Pwm
             
             return _actualFrequency;
         }
+
+        #region Native Calls
+
+        /// <summary>
+        /// Retrieves an Advanced Query Syntax (AQS) string for all the PWM controllers on the system. You can use this string with the DeviceInformation.FindAllAsync method to get DeviceInformation objects for those controllers.
+        /// </summary>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        public static extern string GetDeviceSelector();
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        private extern uint NativeSetDesiredFrequency(uint desiredFrequency);
+
+        #endregion
     }
 }
 
