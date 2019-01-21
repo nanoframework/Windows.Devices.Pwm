@@ -6,6 +6,7 @@
 
 **Documentation and other chores:**
 
+- Bumps nanoFramework.CoreLibrary from 1.1.0 to 1.1.1 [\#40](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/40)
 - Merge back from Release v1.1.0 [\#39](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/39)
 
 ## [v1.1.0](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.1.0) (2018-12-14)
