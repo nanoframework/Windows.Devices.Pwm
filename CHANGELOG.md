@@ -1,5 +1,13 @@
 # Change Log
 
+## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.1.2...HEAD)
+
+**Documentation and other chores:**
+
+- Merge back from Release v1.1.2 [\#42](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/42)
+
 ## [v1.1.2](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.1.2) (2019-01-21)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.1.0...v1.1.2)
 
@@ -12,7 +20,6 @@
 ## [v1.1.0](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.1.0) (2018-12-14)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.2-preview-017...v1.1.0)
 
-## [v1.0.0](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.0) (2018-10-17)
 **Documentation and other chores:**
 
 - Release v1.1.0 [\#38](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/38)
