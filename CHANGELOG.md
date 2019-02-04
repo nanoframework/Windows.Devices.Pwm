@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.1.2...HEAD)
 
+**Implemented enhancements:**
+
+- Static field objects are now created on constructors. [\#43](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/43)
+
 **Documentation and other chores:**
 
 - Merge back from Release v1.1.2 [\#42](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/42)
