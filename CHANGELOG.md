@@ -1,5 +1,13 @@
 # Change Log
 
+## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.2.0-preview-008...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.CoreLibrary from 1.2.1-preview-001 to 1.2.4-preview.1 [\#50](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/50)
+
 ## [v1.2.0-preview-008](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.2.0-preview-008) (2019-04-23)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.1.3...v1.2.0-preview-008)
 
@@ -40,10 +48,6 @@
 ## [v1.0.2-preview-017](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.2-preview-017) (2018-12-03)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.2-preview-015...v1.0.2-preview-017)
 
-**Fixed bugs:**
-
-- Fix bug with controller search and indexing [\#36](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/36)
-
 ## [v1.0.2-preview-015](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.2-preview-015) (2018-11-30)
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.2-preview-013...v1.0.2-preview-015)
 
@@ -76,6 +80,7 @@
 
 **Fixed bugs:**
 
+- Fix bug with controller search and indexing [\#36](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/36)
 - Add AssemblyInfo.cs [\#7](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/7)
 
 **Documentation and other chores:**
