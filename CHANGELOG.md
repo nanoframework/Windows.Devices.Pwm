@@ -2,7 +2,14 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.2.1-preview.2...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.2.1-preview.6...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.CoreLibrary from 1.2.5-preview.1 to 1.2.6-preview.1 [\#52](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/52)
+
+## [v1.2.1-preview.6](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.2.1-preview.6) (2019-06-12)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.2.1-preview.2...v1.2.1-preview.6)
 
 **Documentation and other chores:**
 
