@@ -30,9 +30,8 @@ namespace Windows.Devices.Pwm
 
             // check if this controller is already opened
             var myController = FindController(_controllerId);
-            if (myController != null)
+            if (myController == null)
             {
-
                 _actualFrequency = 0.0;
                 _pwmTimer = controller;
 
