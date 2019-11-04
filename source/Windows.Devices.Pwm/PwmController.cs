@@ -29,14 +29,15 @@ namespace Windows.Devices.Pwm
             _controllerId = controller[3] - '0';
 
             // check if this controller is already opened
-            if (!PwmControllerManager.ControllersCollection.Contains(_controllerId))
+            var myController = FindController(_controllerId);
+            if (myController != null)
             {
 
                 _actualFrequency = 0.0;
                 _pwmTimer = controller;
 
                 // add controller to collection, with the ID as key (just the index number)
-                PwmControllerManager.ControllersCollection.Add(_controllerId, this);
+                PwmControllerManager.ControllersCollection.Add(this);
             }
             else
             {
@@ -126,10 +127,11 @@ namespace Windows.Devices.Pwm
                 // need to grab 'n' from the string and convert that to the integer value from the ASCII code (do this by subtracting 48 from the char value)
                 var controllerId = controllers[0][3] - '0';
 
-                if (PwmControllerManager.ControllersCollection.Contains(controllerId))
+                var controller = FindController(controllerId);
+                if (controller != null)
                 {
                     // controller is already open
-                    return (PwmController)PwmControllerManager.ControllersCollection[controllerId];
+                    return controller;
                 }
                 else
                 {
@@ -170,6 +172,19 @@ namespace Windows.Devices.Pwm
             _actualFrequency = NativeSetDesiredFrequency((uint)desiredFrequency);
             
             return _actualFrequency;
+        }
+
+        private static PwmController FindController(int index)
+        {
+            for (int i = 0; i < PwmControllerManager.ControllersCollection.Count; i++)
+            {
+                if (((PwmController)PwmControllerManager.ControllersCollection[i])._controllerId == index)
+                {
+                    return (PwmController)PwmControllerManager.ControllersCollection[i];
+                }
+            }
+
+            return null;
         }
 
         #region Native Calls
