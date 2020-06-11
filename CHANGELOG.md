@@ -1,8 +1,8 @@
 # Changelog
 
-## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
+## [v1.5.1-preview.16](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.5.1-preview.16) (2020-06-11)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.5.1-preview.14...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.5.1-preview.14...v1.5.1-preview.16)
 
 **Documentation and other chores:**
 
