@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Windows.Devices.Pwm", "Windows.Devices.Pwm\Windows.Devices.Pwm.nfproj", "{C61B0C4B-7D39-40E7-9A0A-E19AB507CBD1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6A8F850-6A52-47CA-88A9-8C49AF2681E7}"
+	ProjectSection(SolutionItems) = preProject
+		nanoframework.Windows.Devices.Pwm.DELIVERABLES.nuspec = nanoframework.Windows.Devices.Pwm.DELIVERABLES.nuspec
+		nanoframework.Windows.Devices.Pwm.nuspec = nanoframework.Windows.Devices.Pwm.nuspec
+		NuGet.Config = NuGet.Config
+		version.json = version.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
