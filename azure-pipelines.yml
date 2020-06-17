@@ -24,7 +24,7 @@ variables:
   solution: '**/source/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  classLibName: 'Windows.Devices.Adc'
+  classLibName: 'Windows.Devices.Pwm'
   nugetPackageName: 'nanoFramework.Windows.Devices.Pwm'
   repoName: 'lib-Windows.Devices.Pwm'
 
