@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.13...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.15...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.CoreLibrary from 1.9.1-preview.6 to 1.10.0-preview.4 [\#86](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/86)
+
+## [v1.6.0-preview.15](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.6.0-preview.15) (2020-10-20)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.13...v1.6.0-preview.15)
 
 **Documentation and other chores:**
 
@@ -318,6 +326,7 @@
 **Documentation and other chores:**
 
 - Bumps nanoFramework.CoreLibrary from 1.0.6-preview-001 to 1.0.6-preview-010 [\#30](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/30)
+- Bumps nanoFramework.CoreLibrary from 1.0.5-preview024 to 1.0.6-preview-001 [\#29](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/29)
 - Bumps nanoFramework.CoreLibrary from 1.0.4 to 1.0.5-preview024 [\#27](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/27)
 
 ## [v1.0.0](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.0.0) (2018-10-17)
@@ -335,7 +344,6 @@
 
 **Documentation and other chores:**
 
-- Bumps nanoFramework.CoreLibrary from 1.0.5-preview024 to 1.0.6-preview-001 [\#29](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/29)
 - Bumps nanoFramework.CoreLibrary from 1.0.1-preview134 to 1.0.4 [\#23](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/23)
 - Bumps nanoFramework.CoreLibrary from 1.0.1-preview127 to 1.0.1-preview134 [\#21](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/21)
 - Bumps nanoFramework.CoreLibrary from 1.0.1-preview123 to 1.0.1-preview127 [\#20](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/20)
