@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.15...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.17...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.CoreLibrary from 1.10.0-preview.4 to 1.10.1-preview.6 [\#87](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/87)
+
+## [v1.6.0-preview.17](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.6.0-preview.17) (2020-12-07)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.15...v1.6.0-preview.17)
 
 **Documentation and other chores:**
 
@@ -266,10 +274,6 @@
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.1.3...v1.2.0-preview-008)
 
-**Implemented enhancements:**
-
-- Static field objects are now created on constructors. [\#43](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/43)
-
 **Documentation and other chores:**
 
 - Bumps nanoFramework.CoreLibrary from 1.2.0 to 1.2.1-preview-001 [\#46](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/46)
@@ -290,6 +294,10 @@
 ## [v1.1.0](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.1.0) (2018-12-14)
 
 [Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.0.2-preview-017...v1.1.0)
+
+**Implemented enhancements:**
+
+- Static field objects are now created on constructors. [\#43](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/43)
 
 **Documentation and other chores:**
 
