@@ -2,7 +2,16 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.22...HEAD)
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.24...HEAD)
+
+**Documentation and other chores:**
+
+- Bumps nanoFramework.CoreLibrary from 1.10.1-preview.9 to 1.10.1-preview.11 [\#91](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/91)
+- Update 2 nuget dependencies [\#90](https://github.com/nanoframework/lib-Windows.Devices.Pwm/pull/90)
+
+## [v1.6.0-preview.24](https://github.com/nanoframework/lib-Windows.Devices.Pwm/tree/v1.6.0-preview.24) (2021-01-06)
+
+[Full Changelog](https://github.com/nanoframework/lib-Windows.Devices.Pwm/compare/v1.6.0-preview.22...v1.6.0-preview.24)
 
 **Documentation and other chores:**
 
