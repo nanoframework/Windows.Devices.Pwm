@@ -1,6 +1,6 @@
 trigger:
   branches:
-    include: [master, develop, "release-*" ]
+    include: [main, develop, "release-*" ]
   paths:
     exclude: ["*.md", .gitignore]
   tags:
@@ -26,7 +26,7 @@ variables:
   buildConfiguration: 'Release'
   classLibName: 'Windows.Devices.Pwm'
   nugetPackageName: 'nanoFramework.Windows.Devices.Pwm'
-  repoName: 'lib-Windows.Devices.Pwm'
+  repoName: 'Windows.Devices.Pwm'
 
 steps:
 
