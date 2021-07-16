@@ -1,28 +1,12 @@
 trigger:
   branches:
-    include:
-    - master
-    - develop
-    - release-/*
-    - refs/tags/*
+    include: [main, develop, "release-*" ]
   paths:
-    exclude:
-    - CHANGELOG.md
-    - /*.md
-    - .gitignore
-    - appveyor.yml
-  # waiting for feature to become available
-  # tags:
-  #   include:
-  #   - v/*
+    exclude: ["*.md", .gitignore]
+  tags:
+    include: ["v*"]
 
-pr:
-  branches:
-    include:
-    - master
-    - develop
-    - release/*
-  autoCancel: true
+# PR always trigger build
 
 # add nf-tools repo to resources (for Azure Pipelines templates)
 resources:
@@ -33,15 +17,16 @@ resources:
       endpoint: nanoframework
 
 pool:
-  vmImage: 'VS2017-Win2016'
+  vmImage: 'windows-2019'
 
 variables:
-  solution: '**/source/*.sln'
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  classLibName: 'Windows.Devices.Adc'
+  classLibName: 'Windows.Devices.Pwm'
   nugetPackageName: 'nanoFramework.Windows.Devices.Pwm'
-  repoName: 'lib-Windows.Devices.Pwm'
+  repoName: 'Windows.Devices.Pwm'
 
 steps:
 
