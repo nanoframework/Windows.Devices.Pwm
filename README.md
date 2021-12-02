@@ -4,6 +4,10 @@
 
 -----
 
+## ⚠️ This library is now deprecated and has been replaced with [System.Device.Pwm](https://github.com/nanoframework/System.Device.Pwm). Please use that one instead. ⚠️
+
+-----
+
 ### Welcome to the **nanoFramework** Windows.Devices.Pwm Library repository!
 
 ## Build status
