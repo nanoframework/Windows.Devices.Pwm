@@ -4,19 +4,18 @@
     <id>nanoFramework.Windows.Devices.Pwm</id>
     <version>$version$</version>
     <title>nanoFramework.Windows.Devices.Pwm</title>
-    <authors>nanoFramework project contributors</authors>
-    <owners>nanoFramework project contributors</owners>
+    <authors>nanoframework</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">Apache-2.0</license>
     <releaseNotes>
     </releaseNotes>
+    <readme>docs\README.md</readme>
     <developmentDependency>false</developmentDependency>
     <projectUrl>https://github.com/nanoframework/lib-Windows.Devices.Pwm</projectUrl>
     <iconUrl>https://secure.gravatar.com/avatar/97d0e092247f0716db6d4b47b7d1d1ad</iconUrl>
     <repository type="git" url="https://github.com/nanoframework/lib-Windows.Devices.Pwm" commit="$commit$" />
     <copyright>Copyright (c) .NET Foundation and Contributors</copyright>
-    <description>This package includes the Windows.Devices.Pwm assembly for nanoFramework C# projects.
-This package requires a target with Windows.Devices.Pwm v$nativeVersion$.</description>
+    <description>This package includes the Windows.Devices.Pwm assembly for nanoFramework C# projects.&#10;This package requires a target with Windows.Devices.Pwm v$nativeVersion$.</description>
     <summary>Windows.Devices.Pwm assembly for nanoFramework C# projects</summary>
     <tags>nanoFramework C# csharp netmf netnf Windows.Devices.Pwm</tags>
     <dependencies>
@@ -29,7 +28,9 @@ This package requires a target with Windows.Devices.Pwm v$nativeVersion$.</descr
     <file src="Windows.Devices.Pwm\bin\Release\Windows.Devices.Pwm.pdbx" target="lib\Windows.Devices.Pwm.pdbx" />
     <file src="Windows.Devices.Pwm\bin\Release\Windows.Devices.Pwm.pe" target="lib\Windows.Devices.Pwm.pe" />
     <file src="Windows.Devices.Pwm\bin\Release\Windows.Devices.Pwm.xml" target="lib\Windows.Devices.Pwm.xml" />
-    <!-- readme -->
-    <file src="readme.txt" target="readme.txt" />
+    <file src="assets\readme.txt" target="" />
+    <file src="README.md" target="docs\" />
+    <file src="assets\nf-logo.png" target="images" />
+    <file src="LICENSE.md" target="" />
   </files>
 </package>
