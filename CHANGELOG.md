@@ -2,7 +2,15 @@
 
 ## [**Changes available only in 'Preview' NuGet packages:**](https://github.com/nanoframework/Windows.Devices.Pwm/tree/HEAD)
 
-[Full Changelog](https://github.com/nanoframework/Windows.Devices.Pwm/compare/v1.6.2-preview.6...HEAD)
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.Pwm/compare/v1.6.2-preview.9...HEAD)
+
+**Documentation and other chores:**
+
+- Update 1 NuGet dependencies [\#118](https://github.com/nanoframework/Windows.Devices.Pwm/pull/118)
+
+## [v1.6.2-preview.9](https://github.com/nanoframework/Windows.Devices.Pwm/tree/v1.6.2-preview.9) (2022-03-14)
+
+[Full Changelog](https://github.com/nanoframework/Windows.Devices.Pwm/compare/v1.6.2-preview.6...v1.6.2-preview.9)
 
 **Documentation and other chores:**
 
