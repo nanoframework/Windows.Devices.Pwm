@@ -14,8 +14,7 @@
 
 | Component | Build Status | NuGet Package |
 |:-|---|---|
-| Windows.Devices.Pwm | [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_apis/build/status/nanoframework.lib-Windows.Devices.Pwm?branchName=develop)](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_build/latest?definitionId=8?branchName=master) | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Pwm.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.Pwm/) |
-| Windows.Devices.Pwm (preview) | [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_apis/build/status/nanoframework.lib-Windows.Devices.Pwm?branchName=develop)](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_build/latest?definitionId=8?branchName=develop) | [![](https://badgen.net/badge/NuGet/preview/D7B023?icon=https://simpleicons.now.sh/azuredevops/fff)](https://dev.azure.com/nanoframework/feed/_packaging?_a=package&feed=sandbox&package=nanoFramework.Windows.Devices.Pwm&protocolType=NuGet&view=overview) |
+| Windows.Devices.Pwm | [![Build Status](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_apis/build/status/Windows.Devices.Pwm?repoName=nanoframework%2FWindows.Devices.Pwm&branchName=refs%2Ftags%2Fv1.6.2)](https://dev.azure.com/nanoframework/Windows.Devices.Pwm/_build/latest?definitionId=8&repoName=nanoframework%2FWindows.Devices.Pwm&branchName=refs%2Ftags%2Fv1.6.2) | [![NuGet](https://img.shields.io/nuget/v/nanoFramework.Windows.Devices.Pwm.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/nanoFramework.Windows.Devices.Pwm/) |
 
 ## Feedback and documentation
 
